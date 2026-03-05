@@ -109,4 +109,53 @@ JDK 25 (https://openjdk.org/projects/jdk/25/):
 		<compile files="Azpect.java" options="-25"/>
 	</ajc-test>
 
+	<ajc-test dir="bugs1925/344" title="pertypewithin in module" vm="9">
+		<compile files="module-info.java com/example/aspects/TestAspect.aj com/example/app/Main.java" modulepath="$runtimemodule" outjar="test.jar" options="-17"/>
+		<run modulepath="$runtimemodule,test.jar" module="test/com.example.app.Main">
+			<stdout>
+				<line text="Main running"/>
+			</stdout>
+		</run>
+	</ajc-test>
+
+	<ajc-test dir="bugs1925/344_singleton" title="singleton aspect in module" vm="9">
+		<compile files="module-info.java com/example/aspects/TestAspect.aj com/example/app/Main.java" modulepath="$runtimemodule" outjar="test.jar" options="-17"/>
+		<run modulepath="$runtimemodule,test.jar" module="test/com.example.app.Main">
+			<stdout>
+				<line text="before"/>
+				<line text="Main running"/>
+			</stdout>
+		</run>
+	</ajc-test>
+
+	<ajc-test dir="bugs1925/344_percflow" title="percflow aspect in module" vm="9">
+		<compile files="module-info.java com/example/aspects/TestAspect.aj com/example/app/Main.java" modulepath="$runtimemodule" outjar="test.jar" options="-17"/>
+		<run modulepath="$runtimemodule,test.jar" module="test/com.example.app.Main">
+			<stdout>
+				<line text="before"/>
+				<line text="Main running"/>
+			</stdout>
+		</run>
+	</ajc-test>
+
+	<ajc-test dir="bugs1925/344_pertarget" title="pertarget aspect in module" vm="9">
+		<compile files="module-info.java com/example/aspects/TestAspect.aj com/example/app/Main.java" modulepath="$runtimemodule" outjar="test.jar" options="-17"/>
+		<run modulepath="$runtimemodule,test.jar" module="test/com.example.app.Main">
+			<stdout>
+				<line text="before"/>
+				<line text="Main running"/>
+			</stdout>
+		</run>
+	</ajc-test>
+
+	<ajc-test dir="bugs1925/344_perthis" title="perthis aspect in module" vm="9">
+		<compile files="module-info.java com/example/aspects/TestAspect.aj com/example/app/Main.java" modulepath="$runtimemodule" outjar="test.jar" options="-17"/>
+		<run modulepath="$runtimemodule,test.jar" module="test/com.example.app.Main">
+			<stdout>
+				<line text="before"/>
+				<line text="Main running"/>
+			</stdout>
+		</run>
+	</ajc-test>
+
 </suite>

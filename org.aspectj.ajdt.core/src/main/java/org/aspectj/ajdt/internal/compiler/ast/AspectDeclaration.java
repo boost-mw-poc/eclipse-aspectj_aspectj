@@ -416,7 +416,11 @@ public class AspectDeclaration extends TypeDeclaration {
 
 	private void generateMethod(ClassFile classFile, ResolvedMember member, BodyGenerator gen) {
 		final EclipseFactory world = EclipseFactory.fromScopeLookupEnvironment(this.scope);
-		generateMethod(classFile, world.makeMethodBinding(member), gen);
+		MethodBinding mb = world.makeMethodBinding(member);
+		if (!(mb.declaringClass instanceof SourceTypeBinding)) {
+			mb.declaringClass = binding;
+		}
+		generateMethod(classFile, mb, gen);
 	}
 
 	private void generateMethod(ClassFile classFile, MethodBinding methodBinding, BodyGenerator gen) {

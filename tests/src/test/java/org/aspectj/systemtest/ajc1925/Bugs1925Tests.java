@@ -31,6 +31,26 @@ public class Bugs1925Tests extends XMLBasedAjcTestCase {
 	  runTest("itd code gen problem");
   }
 
+  public void testGh344_PerTypeWithinInModule() {
+	  runTest("pertypewithin in module");
+  }
+
+  public void testGh344_SingletonInModule() {
+	  runTest("singleton aspect in module");
+  }
+
+  public void testGh344_PercflowInModule() {
+	  runTest("percflow aspect in module");
+  }
+
+  public void testGh344_PertargetInModule() {
+	  runTest("pertarget aspect in module");
+  }
+
+  public void testGh344_PerthisInModule() {
+	  runTest("perthis aspect in module");
+  }
+
   @Override
   protected java.net.URL getSpecFile() {
     return getClassResource("ajc1925.xml");
